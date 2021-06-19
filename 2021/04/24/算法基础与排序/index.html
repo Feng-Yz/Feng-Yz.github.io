@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>算法基础与排序 | Yuzhen的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Running Time AnalysisInsertion sortPesudocode: 12345678INSERTION-SORT(A)for j from 2 to A.length    key &lt;- A[j]    i &lt;- j - 1    while i &gt; 0 and A[i] &gt; key        A[i + 1] &lt;- A[i]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法基础与排序">
+<meta property="og:url" content="https://feng-yz.github.io/2021/04/24/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%8E%E6%8E%92%E5%BA%8F/index.html">
+<meta property="og:site_name" content="Yuzhen的博客">
+<meta property="og:description" content="Running Time AnalysisInsertion sortPesudocode: 12345678INSERTION-SORT(A)for j from 2 to A.length    key &lt;- A[j]    i &lt;- j - 1    while i &gt; 0 and A[i] &gt; key        A[i + 1] &lt;- A[i]">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-24T13:57:55.000Z">
+<meta property="article:modified_time" content="2021-05-28T09:11:17.895Z">
+<meta property="article:author" content="Y. Z. FENG">
+<meta property="article:tag" content="插入排序">
+<meta property="article:tag" content="归并排序">
+<meta property="article:tag" content="分治算法">
+<meta property="article:tag" content="主定理">
+<meta property="article:tag" content="堆">
+<meta property="article:tag" content="堆排序">
+<meta property="article:tag" content="快速排序">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Yuzhen的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Yuzhen的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">欢迎来到我的博客！</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+          <a class="main-nav-link" href="/projects/">Projects</a>
+        
+          <a class="main-nav-link" href="/codes/">Codes</a>
+        
+          <a class="main-nav-link" href="/about/">About me</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://feng-yz.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-算法基础与排序" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/04/24/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%8E%E6%8E%92%E5%BA%8F/" class="article-date">
+  <time class="dt-published" datetime="2021-04-24T13:57:55.000Z" itemprop="datePublished">2021-04-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      算法基础与排序
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Running-Time-Analysis"><a href="#Running-Time-Analysis" class="headerlink" title="Running Time Analysis"></a>Running Time Analysis</h1><h2 id="Insertion-sort"><a href="#Insertion-sort" class="headerlink" title="Insertion sort"></a>Insertion sort</h2><p>Pesudocode:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">INSERTION-SORT(A)</span><br><span class="line">for j from 2 to A.length</span><br><span class="line">    key &lt;- A[j]</span><br><span class="line">    i &lt;- j - 1</span><br><span class="line">    while i &gt; 0 and A[i] &gt; key</span><br><span class="line">        A[i + 1] &lt;- A[i]</span><br><span class="line">        i &lt;- i - 1</span><br><span class="line">    A[i + 1] &lt;- key</span><br></pre></td></tr></table></figure>
+
+<h2 id="Analysis-of-algorithms"><a href="#Analysis-of-algorithms" class="headerlink" title="Analysis of algorithms"></a>Analysis of algorithms</h2><p>Analysis of algorithms is to find the relation between input and its running time.</p>
+<p>running time: the number of primitive operations/steps</p>
+<blockquote>
+<p>for <code>INSERTION-SORT</code>:</p>
+<p>Worst-case analysis: <code>1+2+\cdots+(n-1) = \frac&#123;n(n-1)&#125;&#123;2&#125; = \frac&#123;n^2&#125;&#123;2&#125; - \frac&#123;n&#125;&#123;2&#125;</code>;</p>
+<p>Order of growth: <code>\Theta(n^2)</code></p>
+<p>Average case analysis: <code>\frac&#123;n(n-1)&#125;&#123;4&#125; = \frac&#123;n^2&#125;&#123;4&#125; - \frac&#123;n&#125;&#123;4&#125;</code></p>
+<p>Order of growth: <code>\Theta(n^2)</code></p>
+</blockquote>
+<p>Formally,</p>
+<p><code>\Theta(g(n)) = f(n)</code>: there exists positive constant <code>c_1</code>, <code>c_2</code> and <code>n_0</code> such that <code>0 \leq c_1g(n) \leq f(n) \leq c_2g(n)</code> for all <code>n \geq n_0</code>;</p>
+<p><code>O(g(n)) = f(n)</code>: there exists positive constant <code>c</code> and <code>n_0</code> such that <code>0 \leq f(n) \leq cg(n)</code> for all <code>n \geq n_0</code>.</p>
+<p>If we want to prove <code>\frac&#123;n^2&#125;&#123;2&#125;-3n=\Theta(n^2)</code>, we can assume <code>c_1n^2 \leq \frac&#123;n^2&#125;&#123;2&#125;-3n \leq c_2n^2</code>.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c_1n^2 \leq \frac&#123;n^2&#125;&#123;2&#125;-3n \leq c_2n^2 \\</span><br><span class="line">\Rightarrow c_1 \leq \frac&#123;1&#125;&#123;2&#125;-\frac&#123;3&#125;&#123;n&#125; \leq c_2</span><br></pre></td></tr></table></figure>
+
+<p>Let <code>c_1 = \frac&#123;1&#125;&#123;4&#125;, c_2 = \frac&#123;1&#125;&#123;2&#125;</code>.</p>
+<h1 id="Recursive-and-Recurrences"><a href="#Recursive-and-Recurrences" class="headerlink" title="Recursive and Recurrences"></a>Recursive and Recurrences</h1><h2 id="Divide-and-conquer"><a href="#Divide-and-conquer" class="headerlink" title="Divide and conquer"></a>Divide and conquer</h2><p>Many Algorithms are recursive in structure. These algorithm call itself one or more times to deal with the closely related <strong>subproblem</strong> with similar structure.</p>
+<p>Steps:</p>
+<ul>
+<li>Divide: Break the problem into several subproblems that are similar to the original problem, but smaller in size.</li>
+<li>Conquer: Solve the subproblem recursively. when subproblem is small enough, solve the subproblem straightforward.</li>
+<li>Combine: Combine the solutions to the subproblems to the original problem.</li>
+</ul>
+<h2 id="Merge-sort"><a href="#Merge-sort" class="headerlink" title="Merge sort"></a>Merge sort</h2><ul>
+<li>Divide: Divide the n-element sequence into 2 sub sequences of n/2 elements each.</li>
+<li>Conquer: Sort 2 sub sequences using merge sort.</li>
+<li>Combine: Merge the <strong>sorted</strong> sub sequences to provide the answer.</li>
+</ul>
+<p>Pesudocode:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">MERGE(A, p, q, r)</span><br><span class="line">    n1 &lt;- q - p + 1</span><br><span class="line">    n2 &lt;- r - q</span><br><span class="line">    for i &lt;- 1 to n1</span><br><span class="line">        L[i] &lt;- A[p + i - 1]</span><br><span class="line">    for j &lt;- 1 to n2</span><br><span class="line">        R[i] &lt;- A[q + j]</span><br><span class="line">    L[n1 + 1] &lt;- infinity</span><br><span class="line">    R[n2 + 1] &lt;- infinity</span><br><span class="line">    i &lt;- 1, j &lt;- 1</span><br><span class="line">    for k from p to r</span><br><span class="line">        if L[i] &lt;= R[j]</span><br><span class="line">            A[k] &lt;- L[i]</span><br><span class="line">            i &lt;- i + 1</span><br><span class="line">        else </span><br><span class="line">            A[k] &lt;- R[j]</span><br><span class="line">            j &lt;- j + 1</span><br><span class="line"></span><br><span class="line">MERGESORT(A, p, r)</span><br><span class="line">    if p &lt; r</span><br><span class="line">        q &lt;- FLOOR(((p + r) / 2)</span><br><span class="line">        MERGESORT(A, p, q)</span><br><span class="line">        MERGESORT(A, q + 1, r)</span><br><span class="line">        MERGE(A, p, q, r)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Runtime-of-Merge-Sort"><a href="#Runtime-of-Merge-Sort" class="headerlink" title="Runtime of Merge Sort"></a>Runtime of Merge Sort</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">T(n) = \begin&#123;cases&#125;</span><br><span class="line">    1,n=1\\</span><br><span class="line">    2T(\frac&#123;n&#125;&#123;2&#125;) + \Theta(n), n\geq 2</span><br><span class="line">\end&#123;cases&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Induction-Substitution-Method"><a href="#Induction-Substitution-Method" class="headerlink" title="Induction/ Substitution Method"></a>Induction/ Substitution Method</h3><ul>
+<li>Step 1:<br>When <code>n_0 = 2</code>, there exists a constant <code>c</code> such that <code>T(n_0) \leq c(2\lg2)</code>.</li>
+<li>Step 2:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">T(n) = 2T(\frac&#123;n&#125;&#123;2&#125;) + \Theta(n)\\</span><br><span class="line">\leq 2(c\frac&#123;n&#125;&#123;2&#125;\lg \frac&#123;n&#125;&#123;2&#125;) + cn\\</span><br><span class="line">= cn\lg n - cn\lg2 + cn\\</span><br><span class="line">= cn\lg n.</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Master-Theorem"><a href="#Master-Theorem" class="headerlink" title="Master Theorem"></a>Master Theorem</h2><p>Let <code>a \geq 1</code>, <code>b &gt; 1</code> be constants, <code>f(n)</code> be a function and <code>T(n)</code> be defined by recurrence:<br><code>T(n) = aT(\frac&#123;n&#125;&#123;b&#125;) + f(n)</code></p>
+<ol>
+<li>If <code>f(n) = O(n^&#123;\log _b a - \epsilon&#125;)</code> for some constant <code>\epsilon &gt; 0</code>, then <code>T(n) = \Theta(n^&#123;\log _b a&#125;)</code>;</li>
+<li>If <code>f(n) = \Theta (n^&#123;\log _b a&#125;)</code>, then <code>T(n) = \Theta(n^&#123;\log _b a&#125;\lg n)</code>;</li>
+<li>If <code>f(n) = \Omega (n^&#123;\log _b a + \epsilon&#125;)</code> for some constant <code>\epsilon &gt; 0</code>, and if <code>af(\frac&#123;n&#125;&#123;b&#125;)\leq cf(n)</code> for some constant <code>c &lt; 1</code> and sufficiently large <code>n</code>, then <code>T(n) = \Theta(f(n))</code>.</li>
+</ol>
+<h1 id="Heap-and-Heapsort"><a href="#Heap-and-Heapsort" class="headerlink" title="Heap and Heapsort"></a>Heap and Heapsort</h1><h2 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h2><p>A heap is an array with special structure.</p>
+<p>The root of a heap is A[1]. For any element i in the array, it <strong>may</strong> have a parent, a left child and a right child.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PARENT(i)</span><br><span class="line">    return floor(i/2)</span><br><span class="line">LEFT(i)</span><br><span class="line">    return 2i</span><br><span class="line">RIGHT(i)</span><br><span class="line">    return 2i+1</span><br></pre></td></tr></table></figure>
+
+<p>Heap property:</p>
+<ul>
+<li>Max Heap: <code>A[PARENT(i)]</code> &gt;= <code>A[i]</code></li>
+<li>Min Heap: <code>A[PARENT(i)]</code> &lt;= <code>A[i]</code></li>
+</ul>
+<h2 id="Build-a-heap"><a href="#Build-a-heap" class="headerlink" title="Build a heap"></a>Build a heap</h2><p><code>MAX-HEAPIFY(A, i)</code> is based on the assumption that 2 trees rooted at <code>LEFT(i)</code> and <code>RIGHT(i)</code> are heaps.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MAX-HEAPIFY(A, i)</span><br><span class="line">    l = LEFT(i); r = RIGHT(i)</span><br><span class="line">    IF l &lt;= A.size() and A[l] &gt; A[i]</span><br><span class="line">        largest = l</span><br><span class="line">    ELSE largest = i</span><br><span class="line">    IF r &lt;= A.size() and A[r] &gt; A[i]</span><br><span class="line">        largest = r</span><br><span class="line">    IF largest != i</span><br><span class="line">        exchange A[largest] with A[i]</span><br><span class="line">        MAX-HEAPIFY(A, largest)</span><br></pre></td></tr></table></figure>
+
+<p>Runtime: <code>O(\lg n)</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BUILD-HEAP(A)</span><br><span class="line">    FOR i from floor(A.leangth / 2) down to 1</span><br><span class="line">        MAX-HEAPIFY(A, i)</span><br></pre></td></tr></table></figure>
+
+<p>Runtime: <code>O(n) = O(n\lg n)</code></p>
+<p>Hint (refer to <em>CLRS</em> for details):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">T(n) = \sum \limits _&#123;h=0&#125;^&#123;\lfloor\lg n\rfloor&#125; \lfloor\frac&#123;n&#125;&#123;2^&#123;h+1&#125;&#125;\rfloor O(h)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Heap-sort"><a href="#Heap-sort" class="headerlink" title="Heap sort"></a>Heap sort</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HEAP-SORT(A)</span><br><span class="line">    BUILD-HEAP(A)</span><br><span class="line">    FOR i from A.length down to 2</span><br><span class="line">        EXCHANGE A[1] with A[i]</span><br><span class="line">        A.size = A.size - 1</span><br><span class="line">        MAX-HEAPIFY(A, 1)</span><br></pre></td></tr></table></figure>
+
+<p>Runtime: <code>O(n + n\lg n) = O(n\lg n)</code></p>
+<h1 id="Quick-Sort"><a href="#Quick-Sort" class="headerlink" title="Quick Sort"></a>Quick Sort</h1><ol>
+<li>Divide: Divide A[p, …, r] into 2 subs: A[p, …, q-1], A[q+1, …, r] s.t. elements in the formal smaller than A[q] and  the latter larger than A[q].</li>
+<li>Conquer: Sort 2 subs recursively by calling <code>Quicksort</code>.</li>
+<li>Combine: Do nothing.</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">QUICKSORT(A, p, r)</span><br><span class="line">	if p &lt; r</span><br><span class="line">		q = PARTITION(A, p, r)</span><br><span class="line">		QUICKSORT(A, p, q - 1)</span><br><span class="line">		QUICKSORT(A, q + 1, r)</span><br><span class="line"></span><br><span class="line">PARTITION(A, p, r)</span><br><span class="line">	x = A[r]</span><br><span class="line">	i = p - 1</span><br><span class="line">	for j = p to r - 1</span><br><span class="line">		if A[j] &lt;= x</span><br><span class="line">			i = i + 1</span><br><span class="line">			exchange A[i] with A[j]</span><br><span class="line">	exchange A[i + 1] with A[r]</span><br><span class="line">	return i + 1</span><br></pre></td></tr></table></figure>
+
+<h2 id="Time-Complexity"><a href="#Time-Complexity" class="headerlink" title="Time Complexity"></a>Time Complexity</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">T(n) = T(q) + T(n-q-1) + \Theta(n)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Worst-case"><a href="#Worst-case" class="headerlink" title="Worst case"></a>Worst case</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">T(n) = T(n - 1)  + \Theta(n)\\</span><br><span class="line">T(n) = \Theta(n^2)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Best-case"><a href="#Best-case" class="headerlink" title="Best case"></a>Best case</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">T(n) = 2T(\frac&#123;n&#125;&#123;2&#125;) + \Theta(n)\\</span><br><span class="line">T(n) = \Theta(n\log n)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://feng-yz.github.io/2021/04/24/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%8E%E6%8E%92%E5%BA%8F/" data-id="ckq3ufe1v000fbev09xyq2bjr" data-title="算法基础与排序" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%BB%E5%AE%9A%E7%90%86/" rel="tag">主定理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/" rel="tag">分治算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A0%86/" rel="tag">堆</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A0%86%E6%8E%92%E5%BA%8F/" rel="tag">堆排序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" rel="tag">归并排序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" rel="tag">快速排序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" rel="tag">插入排序</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/05/12/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          基本数据结构
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/04/24/CPP%E5%9F%BA%E7%A1%80%E5%8F%8A%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">C++基础及基本数据类型</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E8%AE%B0%E9%9A%8F%E7%AC%94/">杂记随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string%E7%B1%BB/" rel="tag">string类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%BB%E5%AE%9A%E7%90%86/" rel="tag">主定理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/" rel="tag">二叉搜索树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/" rel="tag">分治算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE/" rel="tag">图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A0%86/" rel="tag">堆</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A0%86%E6%8E%92%E5%BA%8F/" rel="tag">堆排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" rel="tag">广度优先搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" rel="tag">强连通分量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" rel="tag">归并排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" rel="tag">快速排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" rel="tag">拓扑排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%87%E9%92%88/" rel="tag">指针</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" rel="tag">插入排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" rel="tag">数据类型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E7%BB%84/" rel="tag">数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" rel="tag">最小生成树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%88/" rel="tag">栈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" rel="tag">深度优先搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">算术运算符</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" rel="tag">线性代数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%93%E6%9E%84/" rel="tag">结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5/" rel="tag">邻接矩阵</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%82%BB%E6%8E%A5%E9%93%BE%E8%A1%A8/" rel="tag">邻接链表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%9F%E5%88%97/" rel="tag">队列</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/string%E7%B1%BB/" style="font-size: 10px;">string类</a> <a href="/tags/%E4%B8%BB%E5%AE%9A%E7%90%86/" style="font-size: 10px;">主定理</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/" style="font-size: 10px;">二叉搜索树</a> <a href="/tags/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/" style="font-size: 10px;">分治算法</a> <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" style="font-size: 10px;">哈希表</a> <a href="/tags/%E5%9B%BE/" style="font-size: 20px;">图</a> <a href="/tags/%E5%A0%86/" style="font-size: 10px;">堆</a> <a href="/tags/%E5%A0%86%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">堆排序</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 10px;">字符串</a> <a href="/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" style="font-size: 10px;">广度优先搜索</a> <a href="/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" style="font-size: 10px;">强连通分量</a> <a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">归并排序</a> <a href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">快速排序</a> <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">拓扑排序</a> <a href="/tags/%E6%8C%87%E9%92%88/" style="font-size: 10px;">指针</a> <a href="/tags/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">插入排序</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 10px;">数据类型</a> <a href="/tags/%E6%95%B0%E7%BB%84/" style="font-size: 10px;">数组</a> <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" style="font-size: 10px;">最小生成树</a> <a href="/tags/%E6%A0%88/" style="font-size: 10px;">栈</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" style="font-size: 10px;">深度优先搜索</a> <a href="/tags/%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/" style="font-size: 10px;">算术运算符</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" style="font-size: 10px;">线性代数</a> <a href="/tags/%E7%BB%93%E6%9E%84/" style="font-size: 10px;">结构</a> <a href="/tags/%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5/" style="font-size: 10px;">邻接矩阵</a> <a href="/tags/%E9%82%BB%E6%8E%A5%E9%93%BE%E8%A1%A8/" style="font-size: 10px;">邻接链表</a> <a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 10px;">队列</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/06/14/%E9%93%BE%E6%8E%A5%E6%95%B4%E7%90%86/">链接整理</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/28/%E5%9B%BE%E6%90%9C%E7%B4%A2%E4%B8%8E%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">图搜索与最小生成树</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/23/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B9%8B%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/">线性代数之图与网络</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/16/CPP%E5%A4%8D%E5%90%88%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">C++复合数据类型</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/12/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">基本数据结构</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Y. Z. FENG<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+    <a href="/projects/" class="mobile-nav-link">Projects</a>
+  
+    <a href="/codes/" class="mobile-nav-link">Codes</a>
+  
+    <a href="/about/" class="mobile-nav-link">About me</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
