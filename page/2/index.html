@@ -122,6 +122,7 @@
 <nav class="site-nav">
   <ul class="main-menu menu">
         <li class="menu-item menu-item-archives"><a href="/archives/" rel="section">Archives</a></li>
+        <li class="menu-item menu-item-files"><a href="/files/" rel="section">Files</a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section">Categories</a></li>
         <li class="menu-item menu-item-projects"><a href="/projects/" rel="section">Projects</a></li>
         <li class="menu-item menu-item-codes"><a href="/codes/" rel="section">Codes</a></li>
@@ -168,7 +169,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -216,152 +217,6 @@
 
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://feng-yz.github.io/2021/04/24/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%8E%E6%8E%92%E5%BA%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Y. Z. FENG">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Y. Z. FENG 的 博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/04/24/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%8E%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">算法基础与排序</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-04-24 21:57:55" itemprop="dateCreated datePublished" datetime="2021-04-24T21:57:55+08:00">2021-04-24</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-05-28 17:11:17" itemprop="dateModified" datetime="2021-05-28T17:11:17+08:00">2021-05-28</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Running-Time-Analysis"><a href="#Running-Time-Analysis" class="headerlink" title="Running Time Analysis"></a>Running Time Analysis</h1><h2 id="Insertion-sort"><a href="#Insertion-sort" class="headerlink" title="Insertion sort"></a>Insertion sort</h2><p>Pesudocode:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">INSERTION-SORT(A)</span><br><span class="line">for j from 2 to A.length</span><br><span class="line">    key &lt;- A[j]</span><br><span class="line">    i &lt;- j - 1</span><br><span class="line">    while i &gt; 0 and A[i] &gt; key</span><br><span class="line">        A[i + 1] &lt;- A[i]</span><br><span class="line">        i &lt;- i - 1</span><br><span class="line">    A[i + 1] &lt;- key</span><br></pre></td></tr></table></figure></p>
-<h2 id="Analysis-of-algorithms"><a href="#Analysis-of-algorithms" class="headerlink" title="Analysis of algorithms"></a>Analysis of algorithms</h2><p>Analysis of algorithms is to find the relation between input and its running time.</p>
-<p>running time: the number of primitive operations/steps</p>
-<blockquote>
-<p>for <code>INSERTION-SORT</code>:</p>
-<p>Worst-case analysis: <code>1+2+\cdots+(n-1) = \frac&#123;n(n-1)&#125;&#123;2&#125; = \frac&#123;n^2&#125;&#123;2&#125; - \frac&#123;n&#125;&#123;2&#125;</code>;</p>
-<p>Order of growth: <code>\Theta(n^2)</code></p>
-<p>Average case analysis: <code>\frac&#123;n(n-1)&#125;&#123;4&#125; = \frac&#123;n^2&#125;&#123;4&#125; - \frac&#123;n&#125;&#123;4&#125;</code></p>
-<p>Order of growth: <code>\Theta(n^2)</code></p>
-</blockquote>
-<p>Formally,</p>
-<p><code>\Theta(g(n)) = f(n)</code>: there exists positive constant <code>c_1</code>, <code>c_2</code> and <code>n_0</code> such that <code>0 \leq c_1g(n) \leq f(n) \leq c_2g(n)</code> for all <code>n \geq n_0</code>;</p>
-<p><code>O(g(n)) = f(n)</code>: there exists positive constant <code>c</code> and <code>n_0</code> such that <code>0 \leq f(n) \leq cg(n)</code> for all <code>n \geq n_0</code>.</p>
-<p>If we want to prove <code>\frac&#123;n^2&#125;&#123;2&#125;-3n=\Theta(n^2)</code>, we can assume <code>c_1n^2 \leq \frac&#123;n^2&#125;&#123;2&#125;-3n \leq c_2n^2</code>.</p>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c<span class="built_in">_</span>1n<span class="built_in">^</span>2 <span class="keyword">\leq</span> <span class="keyword">\frac</span>&#123;n<span class="built_in">^</span>2&#125;&#123;2&#125;-3n <span class="keyword">\leq</span> c<span class="built_in">_</span>2n<span class="built_in">^</span>2 <span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\Rightarrow</span> c<span class="built_in">_</span>1 <span class="keyword">\leq</span> <span class="keyword">\frac</span>&#123;1&#125;&#123;2&#125;-<span class="keyword">\frac</span>&#123;3&#125;&#123;n&#125; <span class="keyword">\leq</span> c<span class="built_in">_</span>2</span><br></pre></td></tr></table></figure>
-<p>Let <code>c_1 = \frac&#123;1&#125;&#123;4&#125;, c_2 = \frac&#123;1&#125;&#123;2&#125;</code>.</p>
-<h1 id="Recursive-and-Recurrences"><a href="#Recursive-and-Recurrences" class="headerlink" title="Recursive and Recurrences"></a>Recursive and Recurrences</h1><h2 id="Divide-and-conquer"><a href="#Divide-and-conquer" class="headerlink" title="Divide and conquer"></a>Divide and conquer</h2><p>Many Algorithms are recursive in structure. These algorithm call itself one or more times to deal with the closely related <strong>subproblem</strong> with similar structure.</p>
-<p>Steps:</p>
-<ul>
-<li>Divide: Break the problem into several subproblems that are similar to the original problem, but smaller in size.</li>
-<li>Conquer: Solve the subproblem recursively. when subproblem is small enough, solve the subproblem straightforward.</li>
-<li>Combine: Combine the solutions to the subproblems to the original problem.</li>
-</ul>
-<h2 id="Merge-sort"><a href="#Merge-sort" class="headerlink" title="Merge sort"></a>Merge sort</h2><ul>
-<li>Divide: Divide the n-element sequence into 2 sub sequences of n/2 elements each.</li>
-<li>Conquer: Sort 2 sub sequences using merge sort.</li>
-<li>Combine: Merge the <strong>sorted</strong> sub sequences to provide the answer.</li>
-</ul>
-<p>Pesudocode:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">MERGE(A, p, q, r)</span><br><span class="line">    n1 &lt;- q - p + 1</span><br><span class="line">    n2 &lt;- r - q</span><br><span class="line">    for i &lt;- 1 to n1</span><br><span class="line">        L[i] &lt;- A[p + i - 1]</span><br><span class="line">    for j &lt;- 1 to n2</span><br><span class="line">        R[i] &lt;- A[q + j]</span><br><span class="line">    L[n1 + 1] &lt;- infinity</span><br><span class="line">    R[n2 + 1] &lt;- infinity</span><br><span class="line">    i &lt;- 1, j &lt;- 1</span><br><span class="line">    for k from p to r</span><br><span class="line">        if L[i] &lt;&#x3D; R[j]</span><br><span class="line">            A[k] &lt;- L[i]</span><br><span class="line">            i &lt;- i + 1</span><br><span class="line">        else </span><br><span class="line">            A[k] &lt;- R[j]</span><br><span class="line">            j &lt;- j + 1</span><br><span class="line"></span><br><span class="line">MERGESORT(A, p, r)</span><br><span class="line">    if p &lt; r</span><br><span class="line">        q &lt;- FLOOR(((p + r) &#x2F; 2)</span><br><span class="line">        MERGESORT(A, p, q)</span><br><span class="line">        MERGESORT(A, q + 1, r)</span><br><span class="line">        MERGE(A, p, q, r)</span><br></pre></td></tr></table></figure></p>
-<h2 id="Runtime-of-Merge-Sort"><a href="#Runtime-of-Merge-Sort" class="headerlink" title="Runtime of Merge Sort"></a>Runtime of Merge Sort</h2><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">T(n) = <span class="keyword">\begin</span>&#123;cases&#125;</span><br><span class="line">    1,n=1<span class="keyword">\\</span></span><br><span class="line">    2T(<span class="keyword">\frac</span>&#123;n&#125;&#123;2&#125;) + <span class="keyword">\Theta</span>(n), n<span class="keyword">\geq</span> 2</span><br><span class="line"><span class="keyword">\end</span>&#123;cases&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Induction-Substitution-Method"><a href="#Induction-Substitution-Method" class="headerlink" title="Induction/ Substitution Method"></a>Induction/ Substitution Method</h3><ul>
-<li>Step 1:<br>When <code>n_0 = 2</code>, there exists a constant <code>c</code> such that <code>T(n_0) \leq c(2\lg2)</code>.</li>
-<li>Step 2:<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">T(n) = 2T(<span class="keyword">\frac</span>&#123;n&#125;&#123;2&#125;) + <span class="keyword">\Theta</span>(n)<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\leq</span> 2(c<span class="keyword">\frac</span>&#123;n&#125;&#123;2&#125;<span class="keyword">\lg</span> <span class="keyword">\frac</span>&#123;n&#125;&#123;2&#125;) + cn<span class="keyword">\\</span></span><br><span class="line">= cn<span class="keyword">\lg</span> n - cn<span class="keyword">\lg</span>2 + cn<span class="keyword">\\</span></span><br><span class="line">= cn<span class="keyword">\lg</span> n.</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="Master-Theorem"><a href="#Master-Theorem" class="headerlink" title="Master Theorem"></a>Master Theorem</h2><p>Let <code>a \geq 1</code>, <code>b &gt; 1</code> be constants, <code>f(n)</code> be a function and <code>T(n)</code> be defined by recurrence:<br><code>T(n) = aT(\frac&#123;n&#125;&#123;b&#125;) + f(n)</code></p>
-<ol>
-<li>If <code>f(n) = O(n^&#123;\log _b a - \epsilon&#125;)</code> for some constant <code>\epsilon &gt; 0</code>, then <code>T(n) = \Theta(n^&#123;\log _b a&#125;)</code>;</li>
-<li>If <code>f(n) = \Theta (n^&#123;\log _b a&#125;)</code>, then <code>T(n) = \Theta(n^&#123;\log _b a&#125;\lg n)</code>;</li>
-<li>If <code>f(n) = \Omega (n^&#123;\log _b a + \epsilon&#125;)</code> for some constant <code>\epsilon &gt; 0</code>, and if <code>af(\frac&#123;n&#125;&#123;b&#125;)\leq cf(n)</code> for some constant <code>c &lt; 1</code> and sufficiently large <code>n</code>, then <code>T(n) = \Theta(f(n))</code>.</li>
-</ol>
-<h1 id="Heap-and-Heapsort"><a href="#Heap-and-Heapsort" class="headerlink" title="Heap and Heapsort"></a>Heap and Heapsort</h1><h2 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h2><p>A heap is an array with special structure.</p>
-<p>The root of a heap is A[1]. For any element i in the array, it <strong>may</strong> have a parent, a left child and a right child.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PARENT(i)</span><br><span class="line">    return floor(i&#x2F;2)</span><br><span class="line">LEFT(i)</span><br><span class="line">    return 2i</span><br><span class="line">RIGHT(i)</span><br><span class="line">    return 2i+1</span><br></pre></td></tr></table></figure>
-<p>Heap property:</p>
-<ul>
-<li>Max Heap: <code>A[PARENT(i)]</code> &gt;= <code>A[i]</code></li>
-<li>Min Heap: <code>A[PARENT(i)]</code> &lt;= <code>A[i]</code></li>
-</ul>
-<h2 id="Build-a-heap"><a href="#Build-a-heap" class="headerlink" title="Build a heap"></a>Build a heap</h2><p><code>MAX-HEAPIFY(A, i)</code> is based on the assumption that 2 trees rooted at <code>LEFT(i)</code> and <code>RIGHT(i)</code> are heaps.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MAX-HEAPIFY(A, i)</span><br><span class="line">    l &#x3D; LEFT(i); r &#x3D; RIGHT(i)</span><br><span class="line">    IF l &lt;&#x3D; A.size() and A[l] &gt; A[i]</span><br><span class="line">        largest &#x3D; l</span><br><span class="line">    ELSE largest &#x3D; i</span><br><span class="line">    IF r &lt;&#x3D; A.size() and A[r] &gt; A[i]</span><br><span class="line">        largest &#x3D; r</span><br><span class="line">    IF largest !&#x3D; i</span><br><span class="line">        exchange A[largest] with A[i]</span><br><span class="line">        MAX-HEAPIFY(A, largest)</span><br></pre></td></tr></table></figure>
-<p>Runtime: <code>O(\lg n)</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BUILD-HEAP(A)</span><br><span class="line">    FOR i from floor(A.leangth &#x2F; 2) down to 1</span><br><span class="line">        MAX-HEAPIFY(A, i)</span><br></pre></td></tr></table></figure>
-<p>Runtime: <code>O(n) = O(n\lg n)</code></p>
-<p>Hint (refer to <em>CLRS</em> for details):</p>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">T(n) = <span class="keyword">\sum</span> <span class="keyword">\limits</span> <span class="built_in">_</span>&#123;h=0&#125;<span class="built_in">^</span>&#123;<span class="keyword">\lfloor</span><span class="keyword">\lg</span> n<span class="keyword">\rfloor</span>&#125; <span class="keyword">\lfloor</span><span class="keyword">\frac</span>&#123;n&#125;&#123;2<span class="built_in">^</span>&#123;h+1&#125;&#125;<span class="keyword">\rfloor</span> O(h)</span><br></pre></td></tr></table></figure>
-<h2 id="Heap-sort"><a href="#Heap-sort" class="headerlink" title="Heap sort"></a>Heap sort</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HEAP-SORT(A)</span><br><span class="line">    BUILD-HEAP(A)</span><br><span class="line">    FOR i from A.length down to 2</span><br><span class="line">        EXCHANGE A[1] with A[i]</span><br><span class="line">        A.size &#x3D; A.size - 1</span><br><span class="line">        MAX-HEAPIFY(A, 1)</span><br></pre></td></tr></table></figure>
-<p>Runtime: <code>O(n + n\lg n) = O(n\lg n)</code></p>
-<h1 id="Quick-Sort"><a href="#Quick-Sort" class="headerlink" title="Quick Sort"></a>Quick Sort</h1><ol>
-<li>Divide: Divide A[p, …, r] into 2 subs: A[p, …, q-1], A[q+1, …, r] s.t. elements in the formal smaller than A[q] and  the latter larger than A[q].</li>
-<li>Conquer: Sort 2 subs recursively by calling <code>Quicksort</code>.</li>
-<li>Combine: Do nothing.</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">QUICKSORT(A, p, r)</span><br><span class="line">	if p &lt; r</span><br><span class="line">		q &#x3D; PARTITION(A, p, r)</span><br><span class="line">		QUICKSORT(A, p, q - 1)</span><br><span class="line">		QUICKSORT(A, q + 1, r)</span><br><span class="line"></span><br><span class="line">PARTITION(A, p, r)</span><br><span class="line">	x &#x3D; A[r]</span><br><span class="line">	i &#x3D; p - 1</span><br><span class="line">	for j &#x3D; p to r - 1</span><br><span class="line">		if A[j] &lt;&#x3D; x</span><br><span class="line">			i &#x3D; i + 1</span><br><span class="line">			exchange A[i] with A[j]</span><br><span class="line">	exchange A[i + 1] with A[r]</span><br><span class="line">	return i + 1</span><br></pre></td></tr></table></figure>
-<h2 id="Time-Complexity"><a href="#Time-Complexity" class="headerlink" title="Time Complexity"></a>Time Complexity</h2><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">T(n) = T(q) + T(n-q-1) + <span class="keyword">\Theta</span>(n)</span><br></pre></td></tr></table></figure>
-<h3 id="Worst-case"><a href="#Worst-case" class="headerlink" title="Worst case"></a>Worst case</h3><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">T(n) = T(n - 1)  + <span class="keyword">\Theta</span>(n)<span class="keyword">\\</span></span><br><span class="line">T(n) = <span class="keyword">\Theta</span>(n<span class="built_in">^</span>2)</span><br></pre></td></tr></table></figure>
-<h3 id="Best-case"><a href="#Best-case" class="headerlink" title="Best case"></a>Best case</h3><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">T(n) = 2T(<span class="keyword">\frac</span>&#123;n&#125;&#123;2&#125;) + <span class="keyword">\Theta</span>(n)<span class="keyword">\\</span></span><br><span class="line">T(n) = <span class="keyword">\Theta</span>(n<span class="keyword">\log</span> n)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
